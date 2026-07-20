@@ -48,6 +48,7 @@
 /* ---------- Mobile ---------- */
 @media (max-width:720px){
   :root{ --header-h:64px; }
+  body.has-bottom-nav{ padding-bottom:calc(var(--bottom-nav-h) + env(safe-area-inset-bottom)); }
   .hero{ padding:var(--sp-6) 0 var(--sp-5); text-align:left; }
   .hero-stats{ gap:var(--sp-5); }
   .grid-courses, .grid-benefits, .grid-4, .grid-2, .bento{ grid-template-columns:1fr; }
