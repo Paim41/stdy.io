@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log In — stdy.io</title>
+<link rel="icon" href="assets/stdy-logo.png">
+<link rel="stylesheet" href="css/reset.css"><link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/animations.css"><link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main id="main">
+  <div class="auth-wrap">
+    <div class="auth-card animate-fade-up">
+      <div class="brand"><span class="brand-mark"><img src="assets/stdy-logo.png" alt=""></span><span>stdy.io</span></div>
+      <h1>Welcome Back</h1>
+      <p class="auth-sub">Log in to continue your learning journey.</p>
+
+      <form id="loginForm" novalidate>
+        <div class="form-group"><label for="loginEmail">Email Address</label>
+          <input class="input" type="email" id="loginEmail" name="loginEmail" autocomplete="email" required>
+          <span class="form-error"></span></div>
+        <div class="form-group"><label for="loginPassword">Password</label>
+          <div class="input-wrap"><input class="input" type="password" id="loginPassword" name="loginPassword" autocomplete="current-password" required>
+            <button type="button" class="input-eye" aria-label="Show password"></button></div>
+          <span class="form-error"></span></div>
+        <div class="flex justify-between items-center mb-4">
+          <label class="checkbox-row"><input type="checkbox" id="rememberMe" name="rememberMe"> Remember me</label>
+          <a href="forgot-password.html" style="font-size:0.85rem; color:var(--primary); font-weight:700;">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Log In</button>
+      </form>
+
+      <details class="demo-accounts">
+        <summary>Demo Accounts <span class="muted" style="font-weight:400;">(click to view)</span></summary>
+        <div class="demo-accounts-body">
+          <p class="form-hint mb-2">This is a browser-based demonstration only. Never store real personal or financial information here.</p>
+          <button type="button" class="demo-account-row" data-demo-email="student@stdy.io" data-demo-password="Student123"><span>Student</span><span class="demo-account-copy">Try learner demo</span></button>
+          <button type="button" class="demo-account-row" data-demo-email="instructor@stdy.io" data-demo-password="Instructor123"><span>Instructor</span><span class="demo-account-copy">Try instructor demo</span></button>
+          <button type="button" class="demo-account-row" data-demo-email="admin@stdy.io" data-demo-password="Admin123"><span>Administrator</span><span class="demo-account-copy">Try admin demo</span></button>
+        </div>
+      </details>
+
+      <p class="auth-foot">Don't have an account? <a href="register.html">Sign up for free</a></p>
+    </div>
+  </div>
+</main>
+<footer id="site-footer"></footer>
+
+<script src="js/utils.js"></script>
+<script src="js/database.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/courses.js"></script>
+<script src="js/enrollment.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/learning.js"></script>
+<script src="js/forum.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/instructor.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/app.js"></script>
+<script>
+  StdyApp.init('');
+  Auth.initLoginPage();
+</script>
+</body>
+</html>

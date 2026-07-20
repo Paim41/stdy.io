@@ -1,0 +1,80 @@
+/* ==========================================================================
+   stdy.io — Design Tokens
+   ========================================================================== */
+:root{
+  /* Light mode */
+  --bg:#F2F8F5;
+  --surface:#FFFFFF;
+  --surface-elevated:#F8FCFA;
+  --primary:#087A59;
+  --primary-dark:#04513D;
+  --primary-rgb:8,122,89;
+  --secondary:#12A875;
+  --accent:#B6F5D9;
+  --success:#11845F;
+  --warning:#F59E0B;
+  --danger:#D0445E;
+  --text:#09251C;
+  --text-secondary:#537066;
+  --border:rgba(4,81,61,0.14);
+  --focus-ring: 0 0 0 3px rgba(18,168,117,0.28);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg,#045E45 0%, #12A875 100%);
+  --gradient-accent: linear-gradient(135deg,#C8FBE3 0%, #67D8A8 100%);
+
+  /* Radius */
+  --r-sm:10px;
+  --r-md:16px;
+  --r-lg:24px;
+  --r-xl:32px;
+  --r-pill:999px;
+
+  /* Shadow */
+  --shadow-sm: 0 2px 10px rgba(4,81,61,0.07);
+  --shadow-md: 0 12px 28px rgba(4,81,61,0.12);
+  --shadow-lg: 0 24px 56px rgba(1,35,25,0.18);
+  --shadow-glow: 0 0 0 1px rgba(18,168,117,0.10), 0 14px 34px rgba(4,94,69,0.22);
+
+  /* Spacing scale */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px;
+  --sp-6:32px; --sp-7:48px; --sp-8:64px; --sp-9:96px;
+
+  /* Type */
+  --font-body: Inter, "Segoe UI", Arial, sans-serif;
+  --header-h:72px;
+  --bottom-nav-h:64px;
+
+  --transition-fast:120ms ease;
+  --transition-base:200ms cubic-bezier(.4,0,.2,1);
+  --transition-slow:360ms cubic-bezier(.4,0,.2,1);
+}
+
+[data-theme="dark"]{
+  --bg:#020D09;
+  --surface:#071A13;
+  --surface-elevated:#0B241A;
+  --primary:#65EDB6;
+  --primary-dark:#31C891;
+  --primary-rgb:101,237,182;
+  --secondary:#35D69B;
+  --accent:#9AF3CC;
+  --success:#48D8A3;
+  --text:#F0FFF8;
+  --text-secondary:#A0C4B6;
+  --border:rgba(154,243,204,0.16);
+  --gradient-primary:linear-gradient(135deg,#0B805B 0%, #18B980 100%);
+  --shadow-sm:0 2px 10px rgba(0,0,0,0.34);
+  --shadow-md:0 10px 30px rgba(0,0,0,0.42);
+  --shadow-lg:0 24px 58px rgba(0,0,0,0.58);
+  --shadow-glow:0 0 0 1px rgba(101,237,182,0.12), 0 14px 36px rgba(12,128,91,0.34);
+}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:0.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}

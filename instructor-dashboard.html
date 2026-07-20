@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instructor Dashboard — stdy.io</title>
+<link rel="icon" href="assets/stdy-logo.png">
+<link rel="stylesheet" href="css/reset.css"><link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/animations.css"><link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main id="main">
+  <div class="page-head container">
+    <div class="flex justify-between items-center" style="flex-wrap:wrap; gap:12px;">
+      <div><h1>Instructor Dashboard</h1><p>Welcome back, <span id="instructorName">Instructor</span>. Manage your courses and students.</p></div>
+      <button class="btn btn-primary" id="newCourseBtn">+ Add New Course</button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="bento" id="instructorStats"></div>
+
+    <div class="panel mt-6"><div class="panel-head"><h3>My Courses</h3></div><div id="instructorCourseList"></div></div>
+
+    <div class="grid" style="grid-template-columns:1fr 1fr; gap:24px; margin-top:24px; align-items:start;">
+      <div class="panel"><h3>Recent Student Activity</h3><div id="instructorActivity" class="mt-3"></div></div>
+      <div class="panel"><h3>Course Discussions</h3><div id="instructorDiscussions" class="mt-3"></div></div>
+    </div>
+
+    <div class="panel mt-6">
+      <h3>Post an Announcement</h3>
+      <form id="announcementForm" class="mt-4">
+        <div class="form-group"><label for="announceCourseSelect">Course</label><select class="input" id="announceCourseSelect"></select></div>
+        <div class="form-group"><label for="announceMessage">Message</label><textarea class="input" id="announceMessage" rows="3" placeholder="Share an update with your students…"></textarea></div>
+        <button type="submit" class="btn btn-primary">Post Announcement</button>
+      </form>
+    </div>
+  </div>
+</main>
+<footer id="site-footer"></footer>
+
+<script src="js/utils.js"></script>
+<script src="js/database.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/courses.js"></script>
+<script src="js/enrollment.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/learning.js"></script>
+<script src="js/forum.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/instructor.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/app.js"></script>
+<script>
+  StdyApp.init('');
+  initInstructorDashboardPage();
+</script>
+</body>
+</html>

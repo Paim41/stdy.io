@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Transcript — stdy.io</title>
+<link rel="icon" href="assets/stdy-logo.png">
+<link rel="stylesheet" href="css/reset.css"><link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/animations.css"><link rel="stylesheet" href="css/responsive.css">
+<style>@media print{ .site-header,.site-footer,.scroll-top-btn,.bottom-nav,#printTranscriptBtn,#downloadTranscriptCsvBtn{ display:none !important; } body{ padding-top:0; } }</style>
+</head>
+<body>
+<header id="site-header"></header>
+<main id="main">
+  <div class="page-head container">
+    <nav class="breadcrumb"><a href="index.html">Home</a> / <a href="dashboard.html">Dashboard</a> / <span>Transcript</span></nav>
+    <h1>My Learning Transcript</h1>
+  </div>
+  <div class="container">
+    <div class="panel">
+      <div class="flex justify-between items-center" style="flex-wrap:wrap; gap:12px;">
+        <div>
+          <p><b>Student:</b> <span id="transcriptStudentName"></span></p>
+          <p><b>Student ID:</b> <span id="transcriptStudentId"></span></p>
+          <p><b>Total Completed Courses:</b> <span id="transcriptCompletedCount"></span></p>
+        </div>
+        <div class="flex gap-2">
+          <button class="btn btn-secondary" id="printTranscriptBtn">Print Transcript</button>
+          <button class="btn btn-primary" id="downloadTranscriptCsvBtn">Download CSV</button>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div id="transcriptTableMount"></div>
+    </div>
+  </div>
+</main>
+<footer id="site-footer"></footer>
+
+<script src="js/utils.js"></script>
+<script src="js/database.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/courses.js"></script>
+<script src="js/enrollment.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/learning.js"></script>
+<script src="js/forum.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/instructor.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/app.js"></script>
+<script>
+  StdyApp.init('');
+  initTranscriptPage();
+</script>
+</body>
+</html>

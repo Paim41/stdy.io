@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>stdy.io — Learn Smarter. Grow Further.</title>
+<meta name="description" content="Build practical skills with hands-on courses, visible progress, and a realistic learner demo on stdy.io.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="stdy.io — Skills that move with your ambition.">
+<meta property="og:description" content="Practical courses, visible progress, and a learning path built to keep you moving.">
+<meta property="og:image" content="https://paim41.github.io/stdy.io/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="stdy.io — Skills that move with your ambition.">
+<meta name="twitter:description" content="Practical courses, visible progress, and a learning path built to keep you moving.">
+<meta name="twitter:image" content="https://paim41.github.io/stdy.io/assets/og.png">
+<link rel="icon" href="assets/stdy-logo.png">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main id="main">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-copy animate-fade-up">
+        <span class="eyebrow">Study with momentum</span>
+        <h1>Skills that move<br>with your ambition.</h1>
+        <p>stdy.io turns practical courses into a clear learning path—with hands-on lessons, visible progress, and a community that keeps you moving.</p>
+        <div class="hero-actions">
+          <a href="courses.html" class="btn btn-primary btn-lg">Browse Courses</a>
+          <button class="btn btn-secondary btn-lg" id="heroStartLearning">Start Learning</button>
+        </div>
+        <form class="hero-search" id="heroSearchForm">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M21 21l-4.3-4.3"/></svg>
+          <input type="search" id="heroSearchInput" placeholder="Search for courses, e.g. JavaScript" aria-label="Search courses">
+          <button type="submit" class="btn btn-primary btn-sm">Search</button>
+        </form>
+        <div class="hero-stats">
+          <div class="hero-stat"><b>2,500+</b><span>Active Learners</span></div>
+          <div class="hero-stat"><b>12</b><span>Demo Courses</span></div>
+          <div class="hero-stat"><b>5</b><span>Expert Instructors</span></div>
+          <div class="hero-stat"><b>92%</b><span>Completion Satisfaction</span></div>
+        </div>
+      </div>
+      <div class="hero-visual animate-fade" aria-label="stdy.io learning emblem">
+        <div class="glow"></div>
+        <div class="hero-emblem-shell">
+          <div class="hero-emblem"><img src="assets/stdy-logo.png" alt="stdy.io ouroboros logo"></div>
+          <div class="hero-note"><b>Learn. Apply. Repeat.</b><span>Your progress stays saved in this realistic browser demo.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="category-row" id="categoryChips"></div>
+    </div>
+  </section>
+
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="section-head"><div><span class="eyebrow">Handpicked For You</span><h2>Featured Courses</h2><p>Popular courses chosen by thousands of learners across every skill level.</p></div>
+        <a href="courses.html" class="btn btn-secondary">View All Courses</a></div>
+      <div class="grid grid-courses" id="featuredCourses"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><span class="eyebrow">Why stdy.io</span><h2>Everything You Need to Keep Going</h2></div></div>
+      <div class="grid grid-benefits">
+        <div class="benefit-card"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg></div><h3>Flexible Learning</h3><p>Learn at your own pace, anywhere, on any device.</p></div>
+        <div class="benefit-card"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path stroke-linecap="round" d="M4 19h16M4 19V9m5 10V5m5 14v-7m5 7v-3"/></svg></div><h3>Progress Tracking</h3><p>Visual dashboards keep you motivated every step of the way.</p></div>
+        <div class="benefit-card"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path stroke-linecap="round" d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div><h3>Expert Instructors</h3><p>Learn from practitioners with real industry experience.</p></div>
+        <div class="benefit-card"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a8 8 0 01-11.5 7.2L4 20l1.1-4.2A8 8 0 1121 12z"/></svg></div><h3>Community Support</h3><p>Ask questions and get help from instructors and peers.</p></div>
+        <div class="benefit-card"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="5"/><path stroke-linecap="round" stroke-linejoin="round" d="M8.5 12.5L7 21l5-2.5L17 21l-1.5-8.5"/></svg></div><h3>Completion Certificates</h3><p>Showcase your new skills with a shareable certificate.</p></div>
+        <div class="benefit-card"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path stroke-linecap="round" d="M11 18h2"/></svg></div><h3>Mobile-Friendly</h3><p>A smooth learning experience on phones, tablets and desktops.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="instructors">
+    <div class="container">
+      <div class="section-head"><div><span class="eyebrow">Learn From The Best</span><h2>Top Instructors</h2><p>Industry practitioners who bring real-world experience to every lesson.</p></div></div>
+      <div class="grid grid-4" id="topInstructors"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head" style="justify-content:center; text-align:center; flex-direction:column;"><span class="eyebrow">Learner Stories</span><h2>What Our Students Say</h2></div>
+      <div class="testimonial-slider" id="testimonialSlider">
+        <div class="testimonial-track"></div>
+        <div class="testimonial-controls">
+          <button class="icon-btn ts-prev" aria-label="Previous testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 18l-6-6 6-6"/></svg></button>
+          <div class="testimonial-dots"></div>
+          <button class="icon-btn ts-next" aria-label="Next testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-section">
+        <h2>Ready to start your learning journey?</h2>
+        <p>Join thousands of learners building real skills with stdy.io today.</p>
+        <div class="cta-actions">
+          <a href="courses.html" class="btn btn-secondary btn-lg">Browse Courses</a>
+          <button class="btn btn-secondary btn-lg" id="ctaCreateAccount">Create Account</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/utils.js"></script>
+<script src="js/database.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/courses.js"></script>
+<script src="js/enrollment.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/learning.js"></script>
+<script src="js/forum.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/instructor.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/app.js"></script>
+<script>
+  StdyApp.init('home');
+  initHomePage();
+</script>
+</body>
+</html>

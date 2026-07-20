@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up — stdy.io</title>
+<link rel="icon" href="assets/stdy-logo.png">
+<link rel="stylesheet" href="css/reset.css"><link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/animations.css"><link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main id="main">
+  <div class="auth-wrap">
+    <div class="auth-card animate-fade-up">
+      <div class="brand"><span class="brand-mark"><img src="assets/stdy-logo.png" alt=""></span><span>stdy.io</span></div>
+      <h1>Create Your Account</h1>
+      <p class="auth-sub">Start learning for free in less than a minute.</p>
+
+      <form id="registerForm" novalidate>
+        <div class="form-group"><label for="regName">Full Name</label><input class="input" id="regName" name="regName" required><span class="form-error"></span></div>
+        <div class="form-group"><label for="regEmail">Email Address</label><input class="input" type="email" id="regEmail" name="regEmail" required><span class="form-error"></span></div>
+        <div class="form-group"><label for="regPassword">Password</label>
+          <div class="input-wrap"><input class="input" type="password" id="regPassword" name="regPassword" required>
+            <button type="button" class="input-eye" aria-label="Show password"></button></div>
+          <div class="password-strength" id="pwStrength"><span></span><span></span><span></span><span></span></div>
+          <span class="form-hint">Minimum 8 characters, with uppercase, lowercase and a number.</span>
+          <span class="form-error"></span></div>
+        <div class="form-group"><label for="regConfirmPassword">Confirm Password</label>
+          <div class="input-wrap"><input class="input" type="password" id="regConfirmPassword" name="regConfirmPassword" required>
+            <button type="button" class="input-eye" aria-label="Show password"></button></div>
+          <span class="form-error"></span></div>
+        <div class="form-group"><label for="regInterest">Learning Interest</label>
+          <select class="input" id="regInterest" name="regInterest">
+            <option>Web Development</option><option>Programming</option><option>UI and UX Design</option>
+            <option>Data Science</option><option>Cybersecurity</option><option>Digital Marketing</option><option>Cloud Computing</option>
+          </select></div>
+        <div class="form-group"><label class="checkbox-row"><input type="checkbox" id="regTerms" name="regTerms"> I agree to the <a href="terms.html" style="color:var(--primary); font-weight:700;">Terms and Conditions</a></label>
+          <span class="form-error"></span></div>
+        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+      </form>
+      <p class="auth-foot">Already have an account? <a href="login.html">Log in</a></p>
+    </div>
+  </div>
+</main>
+<footer id="site-footer"></footer>
+
+<script src="js/utils.js"></script>
+<script src="js/database.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/courses.js"></script>
+<script src="js/enrollment.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/learning.js"></script>
+<script src="js/forum.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/instructor.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/app.js"></script>
+<script>
+  StdyApp.init('');
+  Auth.initRegisterPage();
+</script>
+</body>
+</html>

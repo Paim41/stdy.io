@@ -1,0 +1,129 @@
+/* ==========================================================================
+   stdy.io — Responsive
+   Breakpoints (mobile-first thinking, rules layered by max-width so the
+   base stylesheet stays desktop-complete and each tier narrows it down):
+     Desktop        : > 1024px
+     Small desktop   : 961px – 1024px
+     Tablet          : 721px – 960px   (nav collapses to hamburger here)
+     Mobile          : 481px – 720px
+     Small phone     : <= 480px
+   ========================================================================== */
+
+/* ---------- Small desktop / large tablet ---------- */
+@media (max-width:1100px){
+  .main-nav{ gap:var(--sp-4); }
+}
+
+@media (max-width:1024px){
+  .grid-courses{ grid-template-columns:repeat(2,1fr); }
+  .grid-benefits{ grid-template-columns:repeat(2,1fr); }
+  .grid-4{ grid-template-columns:repeat(2,1fr); }
+  .bento{ grid-template-columns:repeat(2,1fr); }
+  .hero .container{ grid-template-columns:1fr; }
+  .hero{ min-height:auto; }
+  .hero-visual{ order:0; max-width:360px; margin:0 0 0 auto; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .catalog-layout{ grid-template-columns:1fr; }
+  .filter-panel{ display:none; }
+  .mobile-filter-btn{ display:inline-flex; }
+}
+
+@media (max-width:900px){
+  #cdLayout, #cartMount > .grid, #checkoutMount > .grid{ grid-template-columns:1fr !important; }
+  #cdLayout > div:nth-child(2){ order:-1; }
+  #cdLayout > div:nth-child(2) .panel, .cart-summary{ position:static !important; }
+}
+
+/* ---------- Tablet: nav collapses into the hamburger drawer here so the
+   header never feels cramped between the logo and the action icons ---------- */
+@media (max-width:960px){
+  .main-nav{ display:none; }
+  .hamburger{ display:flex; }
+}
+
+@media (min-width:961px){
+  .hamburger{ display:none; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width:720px){
+  :root{ --header-h:64px; }
+  .hero{ padding:var(--sp-6) 0 var(--sp-5); text-align:left; }
+  .hero-stats{ gap:var(--sp-5); }
+  .grid-courses, .grid-benefits, .grid-4, .grid-2, .bento{ grid-template-columns:1fr; }
+  .section{ padding:var(--sp-6) 0; }
+  .section-head{ flex-direction:column; align-items:flex-start; }
+  .footer-grid{ grid-template-columns:1fr; gap:var(--sp-5); }
+  .footer-bottom{ flex-direction:column; align-items:flex-start; }
+  .form-row{ grid-template-columns:1fr; }
+  .catalog-toolbar{ flex-direction:column; align-items:stretch; }
+  .data-table{ min-width:640px; }
+  .bottom-nav{ display:flex; }
+  .scroll-top-btn{ right:16px; bottom:calc(var(--bottom-nav-h) + 16px + env(safe-area-inset-bottom)); }
+  .auth-card{ padding:var(--sp-5); }
+  .cta-section{ padding:var(--sp-6) var(--sp-4); }
+  .container{ padding:0 var(--sp-4); }
+  .btn-lg{ width:100%; }
+  .hero-actions .btn{ flex:1; }
+  .learning-layout{ grid-template-columns:1fr !important; }
+  .learning-sidebar{ display:none; }
+  .instructor-stats{ flex-wrap:wrap; }
+  #cdLayout{ grid-template-columns:1fr !important; }
+  .hero::after{ background:linear-gradient(90deg, rgba(242,248,245,0.97), rgba(242,248,245,0.84)); }
+  [data-theme="dark"] .hero::after{ background:linear-gradient(90deg, rgba(2,13,9,0.97), rgba(2,13,9,0.78)); }
+  .hero-visual{ display:none; }
+  .hero-copy p{ max-width:42rem; }
+  .cart-item{ align-items:flex-start; flex-wrap:wrap; }
+  .cart-item > div[style*="flex:1"]{ min-width:calc(100% - 110px) !important; }
+  .receipt-box .flex{ flex-wrap:wrap; }
+  .receipt-box .btn{ flex:1 1 180px; }
+
+  /* Header stays tidy: tighten gaps and let the wordmark shrink before
+     anything is forced to wrap onto a second line. */
+  #site-header .container{ gap:var(--sp-2); }
+  .brand{ font-size:1.05rem; gap:8px; }
+  .brand svg{ width:30px; height:30px; }
+  .header-actions{ gap:6px; }
+  .header-actions .btn-sm{ padding:9px 14px; font-size:0.82rem; }
+}
+
+@media (min-width:721px) and (max-width:960px){
+  .grid-courses{ grid-template-columns:repeat(2,1fr); }
+}
+
+@media (min-width:961px){
+  .grid-courses{ grid-template-columns:repeat(3,1fr); }
+}
+
+/* ---------- Small phones ---------- */
+@media (max-width:480px){
+  :root{ --header-h:60px; }
+  #site-header .brand span{ display:none; } /* keep the icon mark in the fixed bar, drop the wordmark to save space */
+  .icon-btn{ width:36px; height:36px; }
+  .icon-btn svg{ width:20px; height:20px; }
+  .avatar-badge{ width:32px; height:32px; font-size:0.72rem; }
+  .header-actions{ gap:4px; }
+  h1{ font-size:clamp(1.7rem, 8vw, 2.2rem); }
+  .hero-search{ flex-wrap:wrap; padding:10px 14px; border-radius:var(--r-lg); }
+  .hero-search input{ width:100%; order:3; }
+  .hero-search button{ margin-left:auto; }
+  .hero-stats{ gap:var(--sp-4); }
+  .hero-stat b{ font-size:1.3rem; }
+  .container{ padding:0 14px; }
+  .cta-section{ padding:var(--sp-5) var(--sp-3); }
+  .bento{ gap:12px; }
+  .stat-card .value{ font-size:1.35rem; }
+  .modal{ padding:var(--sp-5); }
+  .certificate-box{ padding:var(--sp-5); }
+  .modal-actions{ flex-direction:column-reverse; }
+  .modal-actions .btn{ width:100%; }
+  .enrollment-summary{ align-items:flex-start; }
+  .enrollment-summary-thumb{ width:76px; }
+  .demo-banner .btn{ width:100%; margin-left:0; }
+  .lesson-row{ align-items:flex-start; padding:12px; }
+  .lesson-row .lesson-meta{ flex-direction:column; align-items:flex-end; }
+}
+
+/* Prevent horizontal scroll safety net */
+html,body{ max-width:100%; }
+img{ max-width:100%; }
