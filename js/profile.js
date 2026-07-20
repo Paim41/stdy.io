@@ -7,7 +7,7 @@ function initProfilePage() {
   const user = requireAuthentication();
   if (!user) return;
 
-  document.getElementById('profileAvatarBig').textContent = getInitials(user.name);
+  document.getElementById('profileAvatarBig').innerHTML = getAvatarImage(user);
   const form = document.getElementById('profileForm');
   form.elements.pName.value = user.name;
   form.elements.pEmail.value = user.email;
@@ -34,7 +34,7 @@ function initProfilePage() {
     users[idx] = { ...users[idx], name, email, bio: form.elements.pBio.value.trim(),
       learningInterest: form.elements.pInterest?.value, preferredDifficulty: form.elements.pDifficulty?.value };
     saveData('stdyio_users', users);
-    document.getElementById('profileAvatarBig').textContent = getInitials(name);
+    document.getElementById('profileAvatarBig').innerHTML = getAvatarImage(users[idx]);
     showToast('Profile updated successfully.', 'success');
     setTimeout(() => location.reload(), 700);
   }));

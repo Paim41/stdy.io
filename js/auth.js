@@ -106,7 +106,7 @@ const Auth = (() => {
       const newUser = {
         id: generateId('usr'), name, email, password, role: 'student',
         learningInterest: interest || 'Web Development', preferredDifficulty: 'Beginner',
-        bio: '', avatar: null, createdAt: new Date().toISOString(), status: 'active', isDemo: false,
+        bio: '', avatar: DEFAULT_AVATAR_PATH, createdAt: new Date().toISOString(), status: 'active', isDemo: false,
       };
       users.push(newUser);
       saveData('stdyio_users', users);

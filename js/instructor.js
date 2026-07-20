@@ -38,7 +38,7 @@ function renderInstructorOverview(user) {
   listMount.innerHTML = courses.length ? courses.map(c => {
     const enrolled = enrollments.filter(e => e.courseId === c.id).length;
     return `<div class="enrolled-item">
-      <div class="enrolled-thumb">${getCourseThumbnailSVG(c.category)}</div>
+      <div class="enrolled-thumb">${getCourseThumbnail(c)}</div>
       <div class="enrolled-info"><h4 class="truncate">${escapeHtml(c.title)}</h4>
         <div class="sub">${enrolled} students • ${c.published === false ? 'Unpublished' : 'Published'} • ${c.priceType === 'free' ? 'Free' : formatCurrency(c.price)}</div></div>
       <button class="btn btn-secondary btn-sm" data-edit-course="${c.id}">${Icons.edit} Edit</button>
@@ -54,7 +54,7 @@ function renderInstructorOverview(user) {
   activityMount.innerHTML = recentProgress.length ? recentProgress.map(p => {
     const student = findUserById(p.userId); const course = courses.find(c => c.id === p.courseId);
     return `<div class="flex items-center gap-3" style="padding:10px 0; border-bottom:1px solid var(--border);">
-      <div class="avatar-badge" style="width:34px;height:34px;font-size:0.7rem;">${getInitials(student?.name || '?')}</div>
+      <div class="avatar-badge" style="width:34px;height:34px;">${getAvatarImage(student)}</div>
       <div style="flex:1;"><p style="font-size:0.85rem;"><b>${escapeHtml(student?.name||'Student')}</b> is progressing through ${escapeHtml(course?.title||'')}</p>
       <span class="muted" style="font-size:0.75rem;">${p.lastAccessedAt ? timeAgo(p.lastAccessedAt) : 'Not started'}</span></div></div>`;
   }).join('') : `<p class="muted">No recent student activity yet.</p>`;

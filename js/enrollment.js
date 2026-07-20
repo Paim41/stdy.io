@@ -95,7 +95,7 @@ function initCartPage() {
           <div class="flex justify-between items-center mb-4"><h3>Cart Items (${rows.length})</h3>
             <a href="courses.html" class="btn btn-ghost btn-sm">Continue Browsing</a></div>
           ${rows.map(c => `<div class="cart-item">
-            <div class="cart-thumb">${getCourseThumbnailSVG(c.category)}</div>
+            <div class="cart-thumb">${getCourseThumbnail(c)}</div>
             <div style="flex:1; min-width:0;"><h4 class="truncate">${escapeHtml(c.title)}</h4>
               <span class="muted" style="font-size:0.82rem;">${escapeHtml(c.category)} • ${c.difficulty}</span></div>
             <strong>${formatCurrency(c.price)}</strong>

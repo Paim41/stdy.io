@@ -69,7 +69,7 @@ function renderOverview(user) {
     const pct = courseProgressPct(progress, course);
     const lastLesson = findLessonById(course, progress.lastAccessedLessonId);
     return `<div class="enrolled-item">
-      <div class="enrolled-thumb">${getCourseThumbnailSVG(course.category)}</div>
+      <div class="enrolled-thumb">${getCourseThumbnail(course)}</div>
       <div class="enrolled-info">
         <h4 class="truncate">${escapeHtml(course.title)}</h4>
         <div class="sub">${escapeHtml(getInstructor(course.instructorId)?.name || '')} • ${lastLesson ? 'Last: ' + escapeHtml(lastLesson.title) : 'Not started yet'}</div>

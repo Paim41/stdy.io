@@ -75,7 +75,9 @@ p{ color:var(--text-secondary); }
 .avatar-badge{
   width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center;
   background:var(--gradient-primary); color:#fff; font-weight:700; font-size:0.85rem; flex-shrink:0;
+  overflow:hidden; border:1px solid rgba(var(--primary-rgb),0.22); box-shadow:0 3px 10px rgba(2,13,9,0.12);
 }
+.avatar-image{ width:100%; height:100%; max-width:none; object-fit:cover; display:block; border-radius:inherit; }
 .hamburger{ display:none; }
 
 /* ---------- Buttons ---------- */
@@ -177,7 +179,8 @@ p{ color:var(--text-secondary); }
 .course-card:focus-visible{ outline:3px solid rgba(var(--primary-rgb),0.34); outline-offset:3px; }
 .course-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); }
 .course-thumb{ position:relative; aspect-ratio:16/9; overflow:hidden; }
-.course-thumb svg{ width:100%; height:100%; }
+.course-thumb svg, .course-thumb .course-image{ width:100%; height:100%; }
+.course-image{ display:block; max-width:none; object-fit:cover; object-position:center; }
 .course-thumb .badge-price{
   position:absolute; top:12px; right:12px; padding:5px 12px; border-radius:var(--r-pill); font-size:0.75rem;
   font-weight:800; background:var(--surface); box-shadow:var(--shadow-sm);
@@ -342,6 +345,7 @@ textarea.input{ min-height:100px; resize:vertical; }
 .enrolled-item{ display:flex; align-items:center; gap:var(--sp-4); padding:var(--sp-3) 0; border-bottom:1px solid var(--border); }
 .enrolled-item:last-child{ border-bottom:none; }
 .enrolled-thumb{ width:64px; height:64px; border-radius:var(--r-md); overflow:hidden; flex-shrink:0; }
+.enrolled-thumb .course-image{ width:100%; height:100%; }
 .enrolled-info{ flex:1; min-width:0; }
 .enrolled-info h4{ font-size:0.95rem; margin-bottom:4px; }
 .enrolled-info .sub{ font-size:0.78rem; color:var(--text-secondary); margin-bottom:6px; }

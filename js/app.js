@@ -50,7 +50,7 @@ const StdyApp = (() => {
         <button class="icon-btn theme-toggle" id="themeToggleBtn" aria-label="Toggle dark mode">${Icons.moon}${Icons.sun}</button>
         <button class="icon-btn" id="notifBtn" aria-label="Notifications, ${unread} unread">${Icons.bell}${unread ? `<span class="notif-dot">${unread > 9 ? '9+' : unread}</span>` : ''}</button>
         <a class="icon-btn" href="${dashHref}" aria-label="Dashboard" title="Dashboard">${Icons.dashboard}</a>
-        <a href="profile.html" class="avatar-badge" title="${escapeHtml(user.name)}" aria-label="Profile: ${escapeHtml(user.name)}">${user.avatar || getInitials(user.name)}</a>
+        <a href="profile.html" class="avatar-badge" title="${escapeHtml(user.name)}" aria-label="Profile: ${escapeHtml(user.name)}">${getAvatarImage(user)}</a>
         <button class="hamburger icon-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">${Icons.menu}</button>`;
     } else {
       actionsHtml = `

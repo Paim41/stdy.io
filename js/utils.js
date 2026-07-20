@@ -134,6 +134,14 @@ function getInitials(name) {
   return initials.toUpperCase();
 }
 
+const DEFAULT_AVATAR_PATH = 'assets/avatars/default-character.svg';
+
+/** Render a consistent illustrated avatar without falling back to text initials. */
+function getAvatarImage(profile) {
+  const src = profile?.avatar || DEFAULT_AVATAR_PATH;
+  return `<img class="avatar-image" src="${escapeHtml(src)}" alt="" aria-hidden="true" loading="lazy" decoding="async">`;
+}
+
 /** Escape a string for safe insertion as text (protects against innerHTML injection). */
 function escapeHtml(str) {
   const div = document.createElement('div');
