@@ -4,7 +4,40 @@
    opened. Never overwrites existing user data on later visits.
    ========================================================================== */
 
-const DB_SEED_VERSION = 'v1';
+const DB_SEED_VERSION = 'v2';
+
+const SEEDED_AVATARS = {
+  usr_student01: 'assets/avatars/aisyah-rahman.svg',
+  usr_instructor01: 'assets/avatars/ahmad-zulkarnain.svg',
+  usr_admin01: 'assets/avatars/farah-idris.svg',
+  usr_instructor02: 'assets/avatars/siti-nurhaliza.svg',
+  usr_instructor03: 'assets/avatars/rajesh-kumar.svg',
+  usr_instructor04: 'assets/avatars/emily-tan.svg',
+  usr_instructor05: 'assets/avatars/marcus-lee.svg',
+};
+
+const SEEDED_COURSE_IMAGES = {
+  crs_001: 'assets/courses/html-css-fundamentals.jpg',
+  crs_002: 'assets/courses/javascript-for-beginners.jpg',
+  crs_003: 'assets/courses/responsive-web-design.jpg',
+  crs_004: 'assets/courses/ui-ux-design-essentials.jpg',
+  crs_005: 'assets/courses/introduction-to-python.jpg',
+  crs_006: 'assets/courses/data-structures-fundamentals.jpg',
+  crs_007: 'assets/courses/cybersecurity-basics.jpg',
+  crs_008: 'assets/courses/digital-marketing-strategy.jpg',
+  crs_009: 'assets/courses/git-and-github-essentials.jpg',
+  crs_010: 'assets/courses/database-design-fundamentals.jpg',
+  crs_011: 'assets/courses/mobile-app-design.jpg',
+  crs_012: 'assets/courses/introduction-to-cloud-computing.jpg',
+};
+
+const SEEDED_TESTIMONIAL_AVATARS = {
+  t1: 'assets/avatars/nurul-izzati.svg',
+  t2: 'assets/avatars/daniel-wong.svg',
+  t3: 'assets/avatars/priya-sharma.svg',
+  t4: 'assets/avatars/haziq-rahman.svg',
+  t5: 'assets/avatars/chen-wei-ling.svg',
+};
 
 function initDatabase() {
   if (localStorage.getItem('stdyio_seed_version') === DB_SEED_VERSION) return;
@@ -24,8 +57,42 @@ function initDatabase() {
   ensureCollection('stdyio_certificates', []);
   ensureCollection('stdyio_reports', []);
   ensureCollection('stdyio_settings', { theme: 'light' });
+  applySeededMedia();
 
   localStorage.setItem('stdyio_seed_version', DB_SEED_VERSION);
+}
+
+/** Add new demo artwork without replacing progress, enrollments, or user-created content. */
+function applySeededMedia() {
+  const users = getData('stdyio_users', []);
+  let changed = false;
+  users.forEach(user => {
+    if (SEEDED_AVATARS[user.id] && !user.avatar) {
+      user.avatar = SEEDED_AVATARS[user.id];
+      changed = true;
+    }
+  });
+  if (changed) saveData('stdyio_users', users);
+
+  const courses = getData('stdyio_courses', []);
+  changed = false;
+  courses.forEach(course => {
+    if (SEEDED_COURSE_IMAGES[course.id] && !course.image) {
+      course.image = SEEDED_COURSE_IMAGES[course.id];
+      changed = true;
+    }
+  });
+  if (changed) saveData('stdyio_courses', courses);
+
+  const testimonials = getData('stdyio_testimonials', []);
+  changed = false;
+  testimonials.forEach(testimonial => {
+    if (SEEDED_TESTIMONIAL_AVATARS[testimonial.id] && !testimonial.avatar) {
+      testimonial.avatar = SEEDED_TESTIMONIAL_AVATARS[testimonial.id];
+      changed = true;
+    }
+  });
+  if (changed) saveData('stdyio_testimonials', testimonials);
 }
 
 function ensureCollection(key, value) {
@@ -39,42 +106,42 @@ function seedUsers() {
       id: 'usr_student01', name: 'Aisyah Rahman', email: 'student@stdy.io', password: 'Student123',
       role: 'student', learningInterest: 'Web Development', preferredDifficulty: 'Beginner',
       bio: 'Aspiring front-end developer exploring modern web technologies.',
-      avatar: null, createdAt: '2025-11-02T09:00:00Z', status: 'active', isDemo: true,
+      avatar: SEEDED_AVATARS.usr_student01, createdAt: '2025-11-02T09:00:00Z', status: 'active', isDemo: true,
     },
     {
       id: 'usr_instructor01', name: 'Ahmad Zulkarnain', email: 'instructor@stdy.io', password: 'Instructor123',
       role: 'instructor', title: 'Senior Web Development Instructor', expertise: 'Web Development',
       bio: 'Full-stack engineer turned educator with 9 years of industry experience building web platforms.',
-      avatar: null, createdAt: '2025-08-15T09:00:00Z', status: 'active', isDemo: true,
+      avatar: SEEDED_AVATARS.usr_instructor01, createdAt: '2025-08-15T09:00:00Z', status: 'active', isDemo: true,
     },
     {
       id: 'usr_admin01', name: 'Farah Idris', email: 'admin@stdy.io', password: 'Admin123',
       role: 'admin', bio: 'Platform administrator keeping stdy.io running smoothly.',
-      avatar: null, createdAt: '2025-07-01T09:00:00Z', status: 'active', isDemo: true,
+      avatar: SEEDED_AVATARS.usr_admin01, createdAt: '2025-07-01T09:00:00Z', status: 'active', isDemo: true,
     },
     {
       id: 'usr_instructor02', name: 'Siti Nurhaliza', email: 'siti.nurhaliza@stdy.io', password: 'Instructor123',
       role: 'instructor', title: 'UI/UX Design Lead', expertise: 'UI and UX Design',
       bio: 'Product designer who has shipped design systems for fintech and e-commerce apps across Southeast Asia.',
-      avatar: null, createdAt: '2025-08-20T09:00:00Z', status: 'active', isDemo: false,
+      avatar: SEEDED_AVATARS.usr_instructor02, createdAt: '2025-08-20T09:00:00Z', status: 'active', isDemo: false,
     },
     {
       id: 'usr_instructor03', name: 'Rajesh Kumar', email: 'rajesh.kumar@stdy.io', password: 'Instructor123',
       role: 'instructor', title: 'Data & Programming Instructor', expertise: 'Programming',
       bio: 'Former data engineer specialising in Python, algorithms, and database systems.',
-      avatar: null, createdAt: '2025-09-05T09:00:00Z', status: 'active', isDemo: false,
+      avatar: SEEDED_AVATARS.usr_instructor03, createdAt: '2025-09-05T09:00:00Z', status: 'active', isDemo: false,
     },
     {
       id: 'usr_instructor04', name: 'Emily Tan', email: 'emily.tan@stdy.io', password: 'Instructor123',
       role: 'instructor', title: 'Cybersecurity Specialist', expertise: 'Cybersecurity',
       bio: 'Security consultant helping learners understand practical, everyday cybersecurity fundamentals.',
-      avatar: null, createdAt: '2025-09-18T09:00:00Z', status: 'active', isDemo: false,
+      avatar: SEEDED_AVATARS.usr_instructor04, createdAt: '2025-09-18T09:00:00Z', status: 'active', isDemo: false,
     },
     {
       id: 'usr_instructor05', name: 'Marcus Lee', email: 'marcus.lee@stdy.io', password: 'Instructor123',
       role: 'instructor', title: 'Growth & Cloud Instructor', expertise: 'Digital Marketing',
       bio: 'Growth marketer and cloud practitioner who teaches practical, campaign-tested strategy.',
-      avatar: null, createdAt: '2025-10-01T09:00:00Z', status: 'active', isDemo: false,
+      avatar: SEEDED_AVATARS.usr_instructor05, createdAt: '2025-10-01T09:00:00Z', status: 'active', isDemo: false,
     },
   ];
   saveData('stdyio_users', users);
@@ -82,7 +149,7 @@ function seedUsers() {
 
 function seedCourses() {
   if (localStorage.getItem('stdyio_courses') !== null) return;
-  const c = (o) => o;
+  const c = (o) => ({ ...o, image: SEEDED_COURSE_IMAGES[o.id] || null });
   const courses = [
     c({ id:'crs_001', slug:'html-css-fundamentals', title:'HTML and CSS Fundamentals', category:'Web Development',
       description:'Build your first web pages with semantic HTML and modern CSS layout techniques.',
@@ -408,11 +475,11 @@ function seedCourses() {
 function seedTestimonials() {
   if (localStorage.getItem('stdyio_testimonials') !== null) return;
   saveData('stdyio_testimonials', [
-    { id:'t1', name:'Nurul Izzati', course:'HTML and CSS Fundamentals', rating:5, text:'stdy.io made it so easy to finally understand CSS Grid. The progress tracker kept me motivated every week.' },
-    { id:'t2', name:'Daniel Wong', course:'JavaScript for Beginners', rating:5, text:'The hands-on projects helped everything click. I built my first interactive page after just two weeks.' },
-    { id:'t3', name:'Priya Sharma', course:'UI and UX Design Essentials', rating:4, text:'Clear, practical lessons. I especially loved the wireframing module and the instructor feedback in the forum.' },
-    { id:'t4', name:'Haziq Rahman', course:'Introduction to Python', rating:5, text:'Best free course I have taken online. The quizzes made sure I actually retained what I learned.' },
-    { id:'t5', name:'Chen Wei Ling', course:'Cybersecurity Basics', rating:5, text:'Practical and easy to follow. I now feel confident spotting phishing attempts and setting up 2FA.' },
+    { id:'t1', name:'Nurul Izzati', avatar:SEEDED_TESTIMONIAL_AVATARS.t1, course:'HTML and CSS Fundamentals', rating:5, text:'stdy.io made it so easy to finally understand CSS Grid. The progress tracker kept me motivated every week.' },
+    { id:'t2', name:'Daniel Wong', avatar:SEEDED_TESTIMONIAL_AVATARS.t2, course:'JavaScript for Beginners', rating:5, text:'The hands-on projects helped everything click. I built my first interactive page after just two weeks.' },
+    { id:'t3', name:'Priya Sharma', avatar:SEEDED_TESTIMONIAL_AVATARS.t3, course:'UI and UX Design Essentials', rating:4, text:'Clear, practical lessons. I especially loved the wireframing module and the instructor feedback in the forum.' },
+    { id:'t4', name:'Haziq Rahman', avatar:SEEDED_TESTIMONIAL_AVATARS.t4, course:'Introduction to Python', rating:5, text:'Best free course I have taken online. The quizzes made sure I actually retained what I learned.' },
+    { id:'t5', name:'Chen Wei Ling', avatar:SEEDED_TESTIMONIAL_AVATARS.t5, course:'Cybersecurity Basics', rating:5, text:'Practical and easy to follow. I now feel confident spotting phishing attempts and setting up 2FA.' },
   ]);
 }
 

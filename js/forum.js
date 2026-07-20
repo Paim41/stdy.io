@@ -47,7 +47,7 @@ function renderThreadList() {
       const upvotes = threadReplies.reduce((s, r) => s + r.upvotes, 0);
       return `<a href="forum.html?thread=${t.id}" class="thread-card" style="display:block;">
         <div class="thread-head">
-          <div class="avatar-badge" style="width:32px;height:32px;font-size:0.7rem;">${getInitials(author?.name || '?')}</div>
+          <div class="avatar-badge" style="width:32px;height:32px;">${getAvatarImage(author)}</div>
           <div><b>${escapeHtml(author?.name || 'Unknown')}</b> <span class="chip chip-neutral" style="margin-left:6px;">${author?.role || ''}</span></div>
           ${t.pinned ? `<span class="chip chip-primary" style="margin-left:auto;">${Icons.pin} Pinned</span>` : ''}
           ${t.locked ? `<span class="chip chip-danger">${Icons.lock} Locked</span>` : ''}
@@ -154,7 +154,7 @@ function renderThreadDetail(threadId) {
       return `<div class="reply-item">
         <button class="upvote-btn ${voted ? 'active' : ''}" data-upvote="${r.id}" aria-label="Upvote reply">${Icons.upvote}<span>${r.upvotes}</span></button>
         <div style="flex:1;">
-          <div class="flex items-center gap-2"><b>${escapeHtml(rAuthor?.name || 'Unknown')}</b>
+          <div class="flex items-center gap-2"><div class="avatar-badge" style="width:32px;height:32px;">${getAvatarImage(rAuthor)}</div><b>${escapeHtml(rAuthor?.name || 'Unknown')}</b>
             <span class="chip chip-neutral">${rAuthor?.role || ''}</span>
             ${r.isInstructorAnswer ? `<span class="chip chip-success">${Icons.check} Instructor Answer</span>` : ''}
             <span class="muted" style="font-size:0.76rem;">${timeAgo(r.createdAt)}</span></div>
@@ -185,7 +185,7 @@ function renderThreadDetail(threadId) {
     <a href="forum.html" class="breadcrumb">${Icons.prev} Back to Forum</a>
     <div class="thread-card mt-3">
       <div class="thread-head">
-        <div class="avatar-badge" style="width:40px;height:40px;">${getInitials(author?.name || '?')}</div>
+        <div class="avatar-badge" style="width:40px;height:40px;">${getAvatarImage(author)}</div>
         <div><b>${escapeHtml(author?.name || 'Unknown')}</b><div class="muted" style="font-size:0.78rem;">${timeAgo(thread.createdAt)}</div></div>
         <div class="flex gap-2" style="margin-left:auto;">
           ${thread.pinned ? `<span class="chip chip-primary">${Icons.pin} Pinned</span>` : ''}

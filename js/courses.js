@@ -19,7 +19,12 @@ const CATEGORY_COLORS = {
 // Replace this URL later with the preferred course-preview video.
 const DEMO_LESSON_PREVIEW_URL = 'https://www.youtube-nocookie.com/embed/UB1O30fR-EE?rel=0';
 
-function getCourseThumbnailSVG(category) {
+function getCourseThumbnail(courseOrCategory) {
+  const course = typeof courseOrCategory === 'object' ? courseOrCategory : null;
+  const category = course?.category || courseOrCategory;
+  if (course?.image) {
+    return `<img class="course-image" src="${escapeHtml(course.image)}" alt="${escapeHtml(course.title)} course thumbnail" loading="lazy" decoding="async">`;
+  }
   const [c1, c2] = CATEGORY_COLORS[category] || ['#045E45', '#18B980'];
   const icon = (CATEGORY_ICONS[category] || Icons.book).replace('currentColor', '#fff');
   const gid = 'g' + Math.random().toString(36).slice(2, 8);
@@ -64,7 +69,7 @@ function courseCardHtml(course, { listView = false } = {}) {
     : `<span class="badge-price paid">${formatCurrency(course.price)}</span>`;
   return `<article class="course-card ${listView ? 'course-card-list' : ''}" data-course-id="${course.id}" data-course-link="course-details.html?id=${course.id}" tabindex="0" aria-label="View ${escapeHtml(course.title)}">
     <div class="course-thumb">
-      ${getCourseThumbnailSVG(course.category)}
+      ${getCourseThumbnail(course)}
       ${priceHtml}
       <button class="bookmark-btn ${bookmarked ? 'active' : ''}" data-bookmark="${course.id}" aria-label="${bookmarked ? 'Remove bookmark' : 'Bookmark this course'}">
         ${bookmarked ? Icons.bookmark.replace('fill="none"','fill="currentColor"') : Icons.bookmark}
@@ -185,7 +190,7 @@ function instructorCardHtml(instructor) {
   const totalStudents = courses.reduce((sum, c) => sum + c.studentCount, 0);
   const avgRating = courses.length ? (courses.reduce((s, c) => s + c.rating, 0) / courses.length).toFixed(1) : '5.0';
   return `<div class="instructor-card">
-    <div class="instructor-avatar avatar-badge" style="width:84px;height:84px;font-size:1.6rem;">${getInitials(instructor.name)}</div>
+    <div class="instructor-avatar avatar-badge" style="width:84px;height:84px;">${getAvatarImage(instructor)}</div>
     <h3>${escapeHtml(instructor.name)}</h3>
     <p class="instructor-title">${escapeHtml(instructor.title || 'Instructor')}</p>
     <div class="instructor-stats">
@@ -208,7 +213,7 @@ function initTestimonialSlider() {
     track.innerHTML = `<div class="testimonial-slide animate-fade">
       <div class="flex justify-between items-center" style="justify-content:center; gap:4px;">${Array.from({length:5}).map((_,i)=> i < t.rating ? Icons.star : Icons.starOutline).join('')}</div>
       <p>“${escapeHtml(t.text)}”</p>
-      <div class="avatar-badge" style="margin:0 auto 8px;">${getInitials(t.name)}</div>
+      <div class="avatar-badge" style="margin:0 auto 8px;">${getAvatarImage(t)}</div>
       <strong>${escapeHtml(t.name)}</strong><div class="muted" style="font-size:0.82rem;">Completed ${escapeHtml(t.course)}</div>
     </div>`;
     dotsWrap.innerHTML = items.map((_, i) => `<button class="dot ${i === index ? 'active' : ''}" data-i="${i}" aria-label="Testimonial ${i+1}"></button>`).join('');
@@ -444,7 +449,7 @@ function initCourseDetailsPage() {
           <span>${Icons.book}${course.difficulty}</span>
           <span>${Icons.globe}${course.language}</span>
         </div>
-        <div class="course-thumb mt-6" style="border-radius:var(--r-lg); aspect-ratio:16/8;">${getCourseThumbnailSVG(course.category)}</div>
+        <div class="course-thumb mt-6" style="border-radius:var(--r-lg); aspect-ratio:16/8;">${getCourseThumbnail(course)}</div>
 
         <div class="panel mt-6">
           <h3>What You Will Learn</h3>
@@ -467,7 +472,7 @@ function initCourseDetailsPage() {
         <div class="panel mt-6">
           <h3>Instructor</h3>
           <div class="flex gap-4 mt-4 items-center">
-            <div class="avatar-badge" style="width:64px;height:64px;font-size:1.3rem;">${getInitials(instructor.name)}</div>
+            <div class="avatar-badge" style="width:64px;height:64px;">${getAvatarImage(instructor)}</div>
             <div><h4>${escapeHtml(instructor.name)}</h4><p style="font-size:0.85rem;">${escapeHtml(instructor.title || '')}</p></div>
           </div>
           <p class="mt-4">${escapeHtml(instructor.bio || '')}</p>
@@ -570,7 +575,7 @@ function withLearnerAccess(course, onReady) {
   openModal(`
     <div class="modal-head"><div><span class="eyebrow">Learner access</span><h3>Ready to join this course?</h3></div><button class="modal-close" data-close-modal aria-label="Close">${Icons.close}</button></div>
     <div class="enrollment-summary">
-      <div class="enrollment-summary-thumb">${getCourseThumbnailSVG(course.category)}</div>
+      <div class="enrollment-summary-thumb">${getCourseThumbnail(course)}</div>
       <div><b>${escapeHtml(course.title)}</b><span>${course.priceType === 'free' ? 'Free course' : formatCurrency(course.price)} · ${course.duration} hours · ${course.difficulty}</span></div>
     </div>
     <p class="mt-4">${signedOutCopy}</p>
@@ -599,7 +604,7 @@ function openFreeEnrollmentDialog(course) {
   openModal(`
     <div class="modal-head"><div><span class="eyebrow">Free enrollment</span><h3>Confirm your course</h3></div><button class="modal-close" data-close-modal aria-label="Close">${Icons.close}</button></div>
     <div class="enrollment-summary">
-      <div class="enrollment-summary-thumb">${getCourseThumbnailSVG(course.category)}</div>
+      <div class="enrollment-summary-thumb">${getCourseThumbnail(course)}</div>
       <div><b>${escapeHtml(course.title)}</b><span>${course.modules.length} modules · ${course.duration} hours · Certificate included</span></div>
     </div>
     <ul class="enrollment-checklist mt-4"><li>${Icons.check}Immediate access to every lesson</li><li>${Icons.check}Progress saved in this browser</li><li>${Icons.check}No payment details required</li></ul>
