@@ -120,7 +120,7 @@
   .enrollment-summary{ align-items:flex-start; }
   .enrollment-summary-thumb{ width:76px; }
   .demo-banner .btn{ width:100%; margin-left:0; }
-  .lesson-row{ align-items:flex-start; padding:12px; }
+  .lesson-row{ grid-template-columns:18px minmax(0,1fr) auto; align-items:flex-start; gap:8px; padding:12px; }
   .lesson-row .lesson-meta{ flex-direction:column; align-items:flex-end; }
 }
 

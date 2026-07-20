@@ -26,6 +26,7 @@
   box-shadow:var(--shadow-lg); transform:scale(0.94); opacity:0; transition:all var(--transition-base); padding:var(--sp-6);
 }
 .modal-overlay.show .modal{ transform:scale(1); opacity:1; }
+.modal.modal-wide{ max-width:760px; }
 .modal-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:var(--sp-4); }
 .modal-close{ width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
 .modal-close:hover{ background:var(--border); }
@@ -65,15 +66,19 @@ body.modal-open{ overflow:hidden; }
 .accordion-panel{ max-height:0; overflow:hidden; transition:max-height var(--transition-slow); }
 .accordion-item.open .accordion-panel{ max-height:2000px; }
 .lesson-row{
-  display:flex; align-items:center; gap:12px; padding:12px 18px; border-top:1px solid var(--border); font-size:0.88rem;
+  display:grid; grid-template-columns:20px minmax(0,1fr) max-content; align-items:center; gap:12px; padding:13px 18px;
+  border-top:1px solid var(--border); font-size:0.88rem; width:100%;
   min-height:44px;
 }
-.lesson-row svg.lesson-icon{ width:18px; height:18px; color:var(--primary); flex-shrink:0; }
-.lesson-row .lesson-title{ flex:1; }
-.lesson-row .lesson-meta{ font-size:0.76rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px; }
+.lesson-row > svg{ width:18px; height:18px; color:var(--primary); }
+.lesson-row .lesson-title{ min-width:0; line-height:1.4; }
+.lesson-row .lesson-meta{ font-size:0.76rem; color:var(--text-secondary); display:flex; align-items:center; justify-content:flex-end; gap:8px; white-space:nowrap; }
 .lesson-row.locked{ opacity:0.55; }
-.lesson-row.completed .lesson-icon{ color:var(--success); }
+.lesson-row.completed > svg{ color:var(--success); }
 .lesson-row.active{ background:rgba(var(--primary-rgb),0.06); }
+.lesson-row[data-lesson-preview]:not([data-lesson-preview=""]):hover{ background:rgba(var(--primary-rgb),0.06); }
+.lesson-preview-frame{ aspect-ratio:16/9; overflow:hidden; border-radius:var(--r-md); background:#020d09; border:1px solid var(--border); }
+.lesson-preview-frame iframe{ display:block; width:100%; height:100%; border:0; }
 
 /* ---------- Tabs ---------- */
 .tabs{ display:flex; gap:var(--sp-2); border-bottom:1px solid var(--border); margin-bottom:var(--sp-5); overflow-x:auto; }

@@ -133,7 +133,7 @@ p{ color:var(--text-secondary); }
 }
 .hero-visual svg{ position:relative; z-index:1; }
 .hero-emblem-shell{
-  position:relative; width:min(430px, 90vw); margin-left:auto; padding:0; border-radius:50%; overflow:hidden;
+  position:relative; width:min(430px, 90vw); margin-left:auto; padding:0; border-radius:50%;
   background:rgba(2,13,9,0.62); border:1px solid rgba(154,243,204,0.24); box-shadow:0 32px 90px rgba(0,0,0,0.42);
   backdrop-filter:blur(10px);
 }
@@ -145,7 +145,7 @@ p{ color:var(--text-secondary); }
 .hero-note{
   position:absolute; left:-24px; bottom:38px; max-width:220px; padding:14px 16px; border-radius:var(--r-md);
   background:rgba(255,255,255,0.92); color:#09251c; border:1px solid rgba(4,81,61,0.15); box-shadow:var(--shadow-md);
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px); z-index:2;
 }
 .hero-note b{ display:block; font-size:0.9rem; }
 .hero-note span{ display:block; color:#537066; font-size:0.76rem; margin-top:2px; }
