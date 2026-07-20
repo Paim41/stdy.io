@@ -45,6 +45,12 @@ body.modal-open{ overflow:hidden; }
 .mobile-drawer .brand{ margin-bottom:var(--sp-6); }
 .mobile-drawer nav a{ display:flex; align-items:center; gap:12px; padding:14px 8px; font-weight:600; border-bottom:1px solid var(--border); min-height:44px; }
 .mobile-drawer nav a svg{ width:20px; height:20px; color:var(--primary); }
+.mobile-drawer .drawer-logout-btn{
+  width:100%; min-height:44px; display:flex; align-items:center; gap:12px; padding:14px 8px;
+  border-bottom:1px solid var(--border); color:var(--text); font-weight:600; text-align:left;
+}
+.mobile-drawer .drawer-logout-btn:hover{ color:var(--danger); background:rgba(239,68,68,0.08); }
+.mobile-drawer .drawer-logout-btn svg{ width:20px; height:20px; flex:0 0 20px; color:var(--danger); }
 
 /* ---------- Bottom sheet (mobile filters) ---------- */
 .bottom-sheet{
