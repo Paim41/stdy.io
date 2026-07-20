@@ -140,6 +140,7 @@ const StdyApp = (() => {
           <div class="footer-brand">
             <a href="index.html" class="brand">${Icons.logo}<span>stdy.io</span></a>
             <p>Learn smarter. Grow further. A modern learning platform for students who want practical, career-ready skills.</p>
+            <a class="footer-github" href="https://github.com/Paim41" target="_blank" rel="noopener noreferrer" aria-label="Visit Paim41 on GitHub">GitHub <strong>@Paim41</strong></a>
           </div>
           <div class="footer-col"><h4>Quick Links</h4>
             <a href="courses.html">Browse Courses</a><a href="forum.html">Community</a><a href="about.html">About Us</a><a href="contact.html">Contact</a>

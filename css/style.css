@@ -5,11 +5,11 @@
 html{ scroll-padding-top: calc(var(--header-h) + 16px); }
 [id]{ scroll-margin-top: calc(var(--header-h) + 16px); }
 
-body{ margin:0; padding-top: var(--header-h); }
-body.has-bottom-nav{ padding-bottom: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom)); }
+body{ margin:0; padding-top:var(--header-h); display:flex; flex-direction:column; }
+body.has-bottom-nav{ padding-bottom:0; }
 
 .container{ width:100%; max-width:1240px; margin:0 auto; padding:0 var(--sp-5); }
-main{ display:block; }
+main{ display:block; flex:1 0 auto; }
 
 h1{ font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing:-0.02em; }
 h2{ font-size: clamp(1.5rem, 3.6vw, 2.25rem); letter-spacing:-0.01em; }
@@ -253,9 +253,15 @@ p{ color:var(--text-secondary); }
 .cta-actions{ display:flex; gap:var(--sp-3); justify-content:center; flex-wrap:wrap; }
 
 /* ---------- Footer ---------- */
-#site-footer{ background:var(--surface); border-top:1px solid var(--border); padding:var(--sp-8) 0 var(--sp-6); margin-top:var(--sp-8); }
+#site-footer{ background:var(--surface); border-top:1px solid var(--border); padding:var(--sp-8) 0 var(--sp-6); margin-top:var(--sp-8); flex-shrink:0; }
 .footer-grid{ display:grid; grid-template-columns:2fr repeat(3,1fr); gap:var(--sp-6); }
 .footer-brand p{ margin:var(--sp-3) 0; max-width:280px; font-size:0.9rem; }
+.footer-github{
+  display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--border); border-radius:var(--r-pill);
+  color:var(--text-secondary); font-size:0.82rem; font-weight:700; transition:color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+.footer-github strong{ color:var(--primary); }
+.footer-github:hover{ color:var(--text); border-color:var(--primary); background:rgba(var(--primary-rgb),0.07); }
 .footer-col h4{ font-size:0.85rem; margin-bottom:var(--sp-3); }
 .footer-col a, .footer-col li{ display:block; font-size:0.87rem; color:var(--text-secondary); padding:5px 0; }
 .footer-col a:hover{ color:var(--primary); }
