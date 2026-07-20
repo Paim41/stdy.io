@@ -109,13 +109,13 @@ function seedUsers() {
       avatar: SEEDED_AVATARS.usr_student01, createdAt: '2025-11-02T09:00:00Z', status: 'active', isDemo: true,
     },
     {
-      id: 'usr_instructor01', name: 'Ahmad Zulkarnain', email: 'instructor@stdy.io', password: 'Instructor123',
+      id: 'usr_instructor01', name: 'Farah Alya', email: 'instructor@stdy.io', password: 'Instructor123',
       role: 'instructor', title: 'Senior Web Development Instructor', expertise: 'Web Development',
       bio: 'Full-stack engineer turned educator with 9 years of industry experience building web platforms.',
       avatar: SEEDED_AVATARS.usr_instructor01, createdAt: '2025-08-15T09:00:00Z', status: 'active', isDemo: true,
     },
     {
-      id: 'usr_admin01', name: 'Farah Idris', email: 'admin@stdy.io', password: 'Admin123',
+      id: 'usr_admin01', name: 'Matt Botax', email: 'admin@stdy.io', password: 'Admin123',
       role: 'admin', bio: 'Platform administrator keeping stdy.io running smoothly.',
       avatar: SEEDED_AVATARS.usr_admin01, createdAt: '2025-07-01T09:00:00Z', status: 'active', isDemo: true,
     },
@@ -126,13 +126,13 @@ function seedUsers() {
       avatar: SEEDED_AVATARS.usr_instructor02, createdAt: '2025-08-20T09:00:00Z', status: 'active', isDemo: false,
     },
     {
-      id: 'usr_instructor03', name: 'Rajesh Kumar', email: 'rajesh.kumar@stdy.io', password: 'Instructor123',
+      id: 'usr_instructor03', name: 'Alecia Anderson', email: 'rajesh.kumar@stdy.io', password: 'Instructor123',
       role: 'instructor', title: 'Data & Programming Instructor', expertise: 'Programming',
       bio: 'Former data engineer specialising in Python, algorithms, and database systems.',
       avatar: SEEDED_AVATARS.usr_instructor03, createdAt: '2025-09-05T09:00:00Z', status: 'active', isDemo: false,
     },
     {
-      id: 'usr_instructor04', name: 'Emily Tan', email: 'emily.tan@stdy.io', password: 'Instructor123',
+      id: 'usr_instructor04', name: 'Emily Singh', email: 'emily.tan@stdy.io', password: 'Instructor123',
       role: 'instructor', title: 'Cybersecurity Specialist', expertise: 'Cybersecurity',
       bio: 'Security consultant helping learners understand practical, everyday cybersecurity fundamentals.',
       avatar: SEEDED_AVATARS.usr_instructor04, createdAt: '2025-09-18T09:00:00Z', status: 'active', isDemo: false,
@@ -475,9 +475,9 @@ function seedCourses() {
 function seedTestimonials() {
   if (localStorage.getItem('stdyio_testimonials') !== null) return;
   saveData('stdyio_testimonials', [
-    { id:'t1', name:'Nurul Izzati', avatar:SEEDED_TESTIMONIAL_AVATARS.t1, course:'HTML and CSS Fundamentals', rating:5, text:'stdy.io made it so easy to finally understand CSS Grid. The progress tracker kept me motivated every week.' },
+    { id:'t1', name:'Zack Ahmad', avatar:SEEDED_TESTIMONIAL_AVATARS.t1, course:'HTML and CSS Fundamentals', rating:5, text:'stdy.io made it so easy to finally understand CSS Grid. The progress tracker kept me motivated every week.' },
     { id:'t2', name:'Daniel Wong', avatar:SEEDED_TESTIMONIAL_AVATARS.t2, course:'JavaScript for Beginners', rating:5, text:'The hands-on projects helped everything click. I built my first interactive page after just two weeks.' },
-    { id:'t3', name:'Priya Sharma', avatar:SEEDED_TESTIMONIAL_AVATARS.t3, course:'UI and UX Design Essentials', rating:4, text:'Clear, practical lessons. I especially loved the wireframing module and the instructor feedback in the forum.' },
+    { id:'t3', name:'Farah Adibah', avatar:SEEDED_TESTIMONIAL_AVATARS.t3, course:'UI and UX Design Essentials', rating:4, text:'Clear, practical lessons. I especially loved the wireframing module and the instructor feedback in the forum.' },
     { id:'t4', name:'Haziq Rahman', avatar:SEEDED_TESTIMONIAL_AVATARS.t4, course:'Introduction to Python', rating:5, text:'Best free course I have taken online. The quizzes made sure I actually retained what I learned.' },
     { id:'t5', name:'Chen Wei Ling', avatar:SEEDED_TESTIMONIAL_AVATARS.t5, course:'Cybersecurity Basics', rating:5, text:'Practical and easy to follow. I now feel confident spotting phishing attempts and setting up 2FA.' },
   ]);
