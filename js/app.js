@@ -90,7 +90,7 @@ const StdyApp = (() => {
     if (user) {
       const dashHref = user.role === 'admin' ? 'admin-dashboard.html' : user.role === 'instructor' ? 'instructor-dashboard.html' : 'dashboard.html';
       extra = `<a href="${dashHref}">${Icons.dashboard}Dashboard</a><a href="profile.html">${Icons.user}Profile</a><a href="certificates.html">${Icons.certificate}Certificates</a>
-        <button id="drawerLogout" style="width:100%">${Icons.logout}Log Out</button>`;
+        <button class="drawer-logout-btn" id="drawerLogout">${Icons.logout}<span>Log Out</span></button>`;
     } else {
       extra = `<a href="login.html">${Icons.login}Log In</a><a href="register.html">${Icons.user}Sign Up</a>`;
     }
