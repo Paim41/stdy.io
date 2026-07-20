@@ -16,6 +16,9 @@ const CATEGORY_COLORS = {
   'Digital Marketing': ['#124E3E','#4DD6A4'], 'Mobile Development': ['#075A43','#22C58A'],
 };
 
+// Replace this URL later with the preferred course-preview video.
+const DEMO_LESSON_PREVIEW_URL = 'https://www.youtube-nocookie.com/embed/UB1O30fR-EE?rel=0';
+
 function getCourseThumbnailSVG(category) {
   const [c1, c2] = CATEGORY_COLORS[category] || ['#045E45', '#18B980'];
   const icon = (CATEGORY_ICONS[category] || Icons.book).replace('currentColor', '#fff');
@@ -429,7 +432,7 @@ function initCourseDetailsPage() {
   document.getElementById('breadcrumbCourseTitle').textContent = course.title;
 
   mount.innerHTML = `
-    <div class="grid" style="grid-template-columns:1.6fr 1fr; gap:32px; align-items:start;" id="cdLayout">
+    <div class="grid" style="grid-template-columns:minmax(0,2fr) minmax(280px,.7fr); gap:32px; align-items:start;" id="cdLayout">
       <div>
         <span class="chip chip-primary">${escapeHtml(course.category)}</span>
         <h1 class="mt-4">${escapeHtml(course.title)}</h1>
@@ -652,11 +655,15 @@ function bindCurriculumAccordion(course, unlocked) {
       const module = course.modules.find(m => m.id === row.dataset.module);
       const lesson = module.lessons.find(l => l.id === lessonId);
       openModal(`<div class="modal-head"><h3>Preview: ${escapeHtml(lesson.title)}</h3><button class="modal-close" data-close-modal aria-label="Close">${Icons.close}</button></div>
-        <div style="aspect-ratio:16/9; background:var(--bg); border-radius:var(--r-md); display:flex; align-items:center; justify-content:center; color:var(--text-secondary);">
-          ${Icons.play}<span class="ml-2">Lesson preview placeholder</span>
+        <div class="lesson-preview-frame">
+          <iframe src="${DEMO_LESSON_PREVIEW_URL}" title="Demo preview for ${escapeHtml(lesson.title)}" loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-        <p class="mt-4">This preview lesson is free to explore before enrolling. Enroll in the course to unlock the full curriculum.</p>
-        <div class="modal-actions"><button class="btn btn-primary" data-close-modal>Close Preview</button></div>`);
+        <p class="mt-4">This sample video demonstrates the preview experience. Replace the URL in <code>DEMO_LESSON_PREVIEW_URL</code> when the final lesson video is ready.</p>
+        <div class="modal-actions"><button class="btn btn-primary" data-close-modal>Close Preview</button></div>`, {
+          onOpen: (overlay) => overlay.querySelector('.modal').classList.add('modal-wide'),
+        });
     });
   });
 }
